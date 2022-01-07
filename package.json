@@ -16,7 +16,6 @@
     "@playwright/test": "^1.17.1",
     "history": "^5.2.0",
     "jsurl2": "^2.1.0",
-    "next": "latest",
     "playwright": "^1.17.1",
     "prism-react-renderer": "^1.2.1",
     "react": "^0.0.0-experimental-42c30e8b1-20220104",
@@ -28,6 +27,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.0.7",
+    "next": "latest",
     "eslint": "^8.6.0",
     "eslint-config-next": "12.0.7",
     "prettier": "^2.5.1"
