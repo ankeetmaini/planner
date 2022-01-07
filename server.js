@@ -20,6 +20,11 @@ app.prepare().then(() => {
     const parsedUrl = parse(req.url, true);
     const { pathname, search } = parsedUrl;
 
+    let host = PUBLIC_URL;
+    if (req) {
+      host = req.headers.host;
+    }
+
     if (pathname.startsWith("/og:image")) {
       if (browserContext === null) {
         // There's some overhead to creating a browser instance;
@@ -37,7 +42,7 @@ app.prepare().then(() => {
       // but pages seem less safe to re-use.
       const page = await browserContext.newPage();
 
-      const url = `${PUBLIC_URL}/headless?${search.substr(1)}`;
+      const url = `${host}/headless?${search.substr(1)}`;
 
       const [_, response] = await Promise.all([
         page.goto(url),
