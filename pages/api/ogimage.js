@@ -4,7 +4,9 @@ import { parse } from "url";
 import { loadEnvConfig } from "@next/env";
 import { launchChromium } from "playwright-aws-lambda";
 
-const PUBLIC_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
+const NEXT_PUBLIC_VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
+const HOST = process.env.NODE_ENV === "development" ? "http" : "https";
+const URL = `${HOST}://${NEXT_PUBLIC_VERCEL_URL}`;
 
 let browserContext = null;
 
@@ -28,7 +30,7 @@ export default async function handler(req, res) {
   // but pages seem less safe to re-use.
   const page = await browserContext.newPage();
 
-  const url = `${PUBLIC_URL}/headless?${search.substr(1)}`;
+  const url = `${URL}/headless?${search.substr(1)}`;
 
   const [_, response] = await Promise.all([
     page.goto(url),

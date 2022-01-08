@@ -1,6 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-const PUBLIC_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
+const NEXT_PUBLIC_VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
+const HOST = process.env.NODE_ENV === "development" ? "http:" : "https";
+const URL = `${HOST}://${NEXT_PUBLIC_VERCEL_URL}`;
 
 export default function CustomDocument() {
   return (
@@ -13,19 +15,16 @@ export default function CustomDocument() {
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={PUBLIC_URL} />
+        <meta property="og:url" content={URL} />
         <meta property="og:title" content="Planner JS" />
         <meta
           property="og:description"
           content="Lightweight, interactive planner. Visualize tasks using an HTML canvas."
         />
-        <meta
-          property="og:image"
-          content={`${PUBLIC_URL}/static/meta-image.png`}
-        />
+        <meta property="og:image" content={`${URL}/static/meta-image.png`} />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`${PUBLIC_URL}`} />
+        <meta property="twitter:url" content={`${URL}`} />
         <meta property="twitter:title" content="Planner JS" />
         <meta
           property="twitter:description"
@@ -33,28 +32,28 @@ export default function CustomDocument() {
         />
         <meta
           property="twitter:image"
-          content={`${PUBLIC_URL}/static/meta-image.png`}
+          content={`${URL}/static/meta-image.png`}
         />
 
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href={`${PUBLIC_URL}/static/apple-touch-icon.png`}
+          href={`${URL}/static/apple-touch-icon.png`}
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href={`${PUBLIC_URL}/static/favicon-32x32.png`}
+          href={`${URL}/static/favicon-32x32.png`}
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href={`${PUBLIC_URL}/static/favicon-16x16.png`}
+          href={`${URL}/static/favicon-16x16.png`}
         />
 
-        <link rel="icon" href={`${PUBLIC_URL}/static/favicon.ico`} />
+        <link rel="icon" href={`${URL}/static/favicon.ico`} />
       </Head>
       <body>
         <Main />
