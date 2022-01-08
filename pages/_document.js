@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-const PUBLIC_URL = process.env.PUBLIC_URL;
+const PUBLIC_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 
 export default function CustomDocument() {
   return (

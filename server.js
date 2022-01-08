@@ -9,7 +9,11 @@ const dev = process.env.NODE_ENV !== "production";
 
 loadEnvConfig("./", dev);
 
-const PUBLIC_URL = process.env.PUBLIC_URL;
+// NEXT_PUBLIC_VERCEL_URL is injected during build on Next servers
+// (which includes PR deployments to temporary domains).
+// It comes from the .env.local file in DEV mode.
+const PUBLIC_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
+
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
@@ -19,11 +23,6 @@ app.prepare().then(() => {
   createServer(async (req, res) => {
     const parsedUrl = parse(req.url, true);
     const { pathname, search } = parsedUrl;
-
-    let host = PUBLIC_URL;
-    if (req) {
-      host = req.headers.host;
-    }
 
     if (pathname.startsWith("/og:image")) {
       if (browserContext === null) {
@@ -42,7 +41,8 @@ app.prepare().then(() => {
       // but pages seem less safe to re-use.
       const page = await browserContext.newPage();
 
-      const url = `${host}/headless?${search.substr(1)}`;
+      const url = `${PUBLIC_URL}/headless?${search.substr(1)}`;
+      console.log("[server] url:", url);
 
       const [_, response] = await Promise.all([
         page.goto(url),
@@ -50,6 +50,7 @@ app.prepare().then(() => {
           return response.request().resourceType() === "document";
         }),
       ]);
+      console.log("[server] response status:", response.status());
 
       // TODO This fallback logic doesn't work because Next auto-wraps errors in 200 status pages.
       // Figure out how to disable this behavior in the future.
