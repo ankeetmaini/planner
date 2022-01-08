@@ -6,7 +6,7 @@
     "dev": "next dev",
     "dev:kill": "kill -9 $(lsof -ti:3000)",
     "lint": "next lint",
-    "playwright:install": "npx playwright install",
+    "playwright:install": "npx playwright install chromium",
     "prettier": "prettier --write \"{__tests__,components,pages}/**/*.{js,json,css}\" && prettier --write \"{run_e2e_tests,server}.js\"",
     "start": "next start",
     "test:e2e": "playwright test --config=playwright.config.js"
@@ -16,7 +16,8 @@
     "@playwright/test": "^1.17.1",
     "history": "^5.2.0",
     "jsurl2": "^2.1.0",
-    "playwright": "^1.17.1",
+    "playwright-aws-lambda": "^0.7.0",
+    "playwright-core": "^1.17.1",
     "prism-react-renderer": "^1.2.1",
     "react": "^0.0.0-experimental-42c30e8b1-20220104",
     "react-dom": "^0.0.0-experimental-42c30e8b1-20220104",
@@ -27,9 +28,9 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.0.7",
-    "next": "latest",
     "eslint": "^8.6.0",
     "eslint-config-next": "12.0.7",
+    "next": "latest",
     "prettier": "^2.5.1"
   }
 }

@@ -2,7 +2,7 @@ import { createReadStream } from "fs";
 import { createServer } from "http";
 import { parse } from "url";
 import { loadEnvConfig } from "@next/env";
-import { chromium } from "playwright";
+import { launchChromium } from "playwright-aws-lambda";
 
 const PUBLIC_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   if (browserContext === null) {
     // There's some overhead to creating a browser instance;
     // we can save that time by reusing browsers between requests.
-    const browser = await chromium.launch();
+    const browser = await launchChromium({ headless: true });
     browserContext = await browser.newContext({
       viewport: {
         width: 1200,
