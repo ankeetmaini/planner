@@ -6,7 +6,7 @@
     "dev": "next dev",
     "dev:kill": "kill -9 $(lsof -ti:3000)",
     "lint": "next lint",
-    "playwright:install": "npx playwright install chromium",
+    "playwright:install": "npx playwright install",
     "prettier": "prettier --write \"{__tests__,components,pages}/**/*.{js,json,css}\" && prettier --write \"{run_e2e_tests,server}.js\"",
     "start": "next start",
     "test:e2e": "playwright test --config=playwright.config.js"
