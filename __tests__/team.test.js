@@ -62,7 +62,7 @@ test.describe("Teams", () => {
 
     // Change user avatar.
     await Promise.all([
-      page.waitForResponse("**/meta-image.png"),
+      page.waitForResponse("**/og-image.png"),
       setEditorText(
         page,
         "team",
@@ -72,7 +72,7 @@ test.describe("Teams", () => {
             name: "Brian",
           },
           team: {
-            avatar: "/meta-image.png",
+            avatar: "/og-image.png",
             name: "Unclaimed",
           },
         })

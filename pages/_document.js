@@ -21,7 +21,7 @@ export default function CustomDocument() {
           property="og:description"
           content="Lightweight, interactive planner. Visualize tasks using an HTML canvas."
         />
-        <meta property="og:image" content={`${URL}/static/meta-image.png`} />
+        <meta property="og:image" content={`${URL}/static/og-image.png`} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={`${URL}`} />
@@ -30,10 +30,7 @@ export default function CustomDocument() {
           property="twitter:description"
           content="Lightweight, interactive planner. Visualize tasks using an HTML canvas."
         />
-        <meta
-          property="twitter:image"
-          content={`${URL}/static/meta-image.png`}
-        />
+        <meta property="twitter:image" content={`${URL}/static/og-image.png`} />
 
         <link
           rel="apple-touch-icon"
