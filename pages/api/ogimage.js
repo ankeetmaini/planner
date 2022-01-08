@@ -52,6 +52,6 @@ export default async function handler(req, res) {
   } else {
     // If the chart didn't generate correctly for any reason, serve a default fallback og:image.
     res.writeHead(200, { "Content-Type": "image/png" });
-    createReadStream("./static/og-image.png").pipe(res);
+    createReadStream("../static/og-image.png").pipe(res);
   }
 }
