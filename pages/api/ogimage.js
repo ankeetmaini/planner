@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
   // There's some overhead in creating a page as well,
   // but pages seem less safe to re-use.
-  const page = await browserContext.newPage();
+  const page = await browserContext.newPage({ userAgent: "Googlebot" });
 
   const url = `${URL}/headless?${search.substr(1)}`;
 
