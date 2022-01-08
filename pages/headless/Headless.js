@@ -35,13 +35,11 @@ export default function Headless() {
   const { query } = useRouter();
 
   const keys = Object.keys(query);
-  console.log("<Headless>\n  query:", query, "\n  keys:", keys);
   if (keys.length === 0) {
     return null;
   }
 
   const { tasks, team } = parse(keys[0], { deURI: true });
-  console.log("<Headless>\n  tasks:", tasks, "\n  team:", team);
 
   const scale = window.devicePixelRatio;
 

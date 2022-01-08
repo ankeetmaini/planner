@@ -11,7 +11,7 @@ function getUrlForData(data) {
 function getUrlForOgImage(data) {
   const stringified = stringify(data);
 
-  return `${PUBLIC_URL}/og:image/?${stringified}`;
+  return `${PUBLIC_URL}/api/ogimage/?${stringified}`;
 }
 
 module.exports = {

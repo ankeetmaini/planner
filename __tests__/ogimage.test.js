@@ -5,7 +5,7 @@ const {
   setEditorText,
 } = require("./page-utils");
 
-test.describe("og:image", () => {
+test.describe("api/ogimage", () => {
   test("should handle multi-day intervals", async ({ page }) => {
     await loadOgImage(page, {
       tasks: [

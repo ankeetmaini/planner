@@ -26,7 +26,7 @@ function saveToOgImage(stringified) {
     return;
   }
 
-  const url = `${window.location.protocol}//${window.location.host}/og:image/?${stringified}`;
+  const url = `${window.location.protocol}//${window.location.host}/api/ogimage/?${stringified}`;
 
   const ogImage = document.head.querySelector('[property="og:image"]');
   if (ogImage) {

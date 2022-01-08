@@ -21,7 +21,7 @@ export default function Test() {
       <ul>
         {Object.entries(URLS).map(([name, query]) => (
           <li key={name}>
-            <Link href={`/og:image/?${query}`}>{name}</Link>
+            <Link href={`/api/ogimage/?${query}`}>{name}</Link>
           </li>
         ))}
       </ul>
